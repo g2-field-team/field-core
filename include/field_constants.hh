@@ -24,11 +24,8 @@ constexpr double d_gap = 180.0;
 // NMR constants
 constexpr double nmr_khz_to_ppm = 61790.0 * 1.0e-6;
 constexpr double nmr_sample_period = 0.0001;
-constexpr double nmr_fid_len_online = 100000;
-constexpr double nmr_fid_len_record = 10000;
-
-// Multipole constants
-constexpr int num_multipoles = 16;
+constexpr double nmr_fid_length_online = 100000;
+constexpr double nmr_fid_length_record = 10000;
 
 // Trolley constants
 constexpr int trolley_nprobes = 17;
