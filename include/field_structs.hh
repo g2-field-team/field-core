@@ -1,5 +1,5 @@
-#ifndef G2_FIELD_CORE_INCLUDE_FIELD_CONSTANTS_HH_
-#define G2_FIELD_CORE_INCLUDE_FIELD_CONSTANTS_HH_
+#ifndef G2_FIELD_CORE_INCLUDE_FIELD_STRUCTS_HH_
+#define G2_FIELD_CORE_INCLUDE_FIELD_STRUCTS_HH_
 
 /*===========================================================================*\
 
@@ -12,8 +12,11 @@ about:  A header file for constant parameters used across field team
 
 \*===========================================================================*/
 
+//--- project includes  -----------------------------------------------------//
+#include <vector>
 
-//--- std includes  ---------------------------------------------------------//
+//--- project includes  -----------------------------------------------------//
+#include "field_constants.hh"
 
 namespace g2field {
 
@@ -43,14 +46,12 @@ const char * const name = "sys_clock["#num_ch"]/D:gps_clock["#num_ch"]/D:"\
 "ferr["#num_ch"]/D:freq_zc["#num_ch"]/D:ferr_zc["#num_ch"]/D:"\
 "health["#num_ch"]/s:method["#num_ch"]/s:trace["#num_ch"]["#len_tr"]/s"
 
-namespace g2field {
-
 // NMR structs
-MAKE_NMR_STRUCT(fixed_t, nmr_num_fixed_probes, nmr_fid_length_record);
-MAKE_NMR_STRING(fixed_str, nmr_num_fixed_probes, nmr_fid_length_record);
+MAKE_NMR_STRUCT(fixed_t, NMR_NUM_FIXED_PROBES, NMR_FID_LENGTH_RECORD);
+MAKE_NMR_STRING(fixed_str, NMR_NUM_FIXED_PROBES, NMR_FID_LENGTH_RECORD);
 
-MAKE_NMR_STRUCT(online_fixed_t, nmr_num_fixed_probes, nmr_fid_length_online);
-MAKE_NMR_STRING(online_fixed_str, nmr_num_fixed_probes, nmr_fid_length_online);
+MAKE_NMR_STRUCT(online_fixed_t, NMR_NUM_FIXED_PROBES, NMR_FID_LENGTH_ONLINE);
+MAKE_NMR_STRING(online_fixed_str, NMR_NUM_FIXED_PROBES, NMR_FID_LENGTH_ONLINE);
 
 // Flexible struct built from the basic nmr attributes.
 struct nmr_vector {
@@ -65,7 +66,7 @@ struct nmr_vector {
   std::vector<Double_t> ferr_zc;
   std::vector<UShort_t> health;
   std::vector<UShort_t> method;
-  std::vector< std::array<UShort_t, nmr_> > trace;
+  std::vector< std::array<UShort_t, NMR_FID_LENGTH_ONLINE> > trace;
 
   inline void Resize(int size) {
     sys_clock.resize(size);
