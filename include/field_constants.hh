@@ -13,24 +13,29 @@ about:  A header file for constant parameters used across field team
 \*===========================================================================*/
 
 
-//--- std includes  ---------------------------------------------------------//
+// NMR literals
+#define NMR_NUM_FIXED_PROBES 378
+#define NMR_FID_LENGTH_ONLINE 100000
+#define NMR_FID_LENGTH_RECORD 10000
+#define NMR_KHZ_TO_PPM 61790.0 * 1.0e-6
+#define NMR_SAMPLE_PERIOD 0.0001
 
 namespace g2field {
 
 // General constants
-constexpr double MAGIC_RADIUS = 7112.0;
-constexpr double POLE_GAP_Z = 180.0;
+constexpr double kMagicRadius = 7112.0;
+constexpr double kPoleGapZ = 180.0;
 
 // NMR constants
-constexpr int NMR_NUM_FIXED_PROBES = 378;
-constexpr int NMR_FID_LENGTH_ONLINE = 100000;
-constexpr int NMR_FID_LENGTH_RECORD = 10000;
-constexpr double NMR_KHZ_TO_PPM = 61790.0 * 1.0e-6;
-constexpr double NMR_SAMPLE_PERIOD = 0.0001;
+constexpr int kNmrNumFixedProbes = NMR_NUM_FIXED_PROBES;
+constexpr int kNmrFidLengthOnline = NMR_FID_LENGTH_ONLINE;
+constexpr int kNmrFidLengthRecord = NMR_FID_LENGTH_RECORD;
+constexpr double kNmrKhzToPpm = NMR_KHZ_TO_PPM;
+constexpr double kNmrSamplePeriod = NMR_SAMPLE_PERIOD;
 
 // Trolley constants
-constexpr int TROLLEY_PROBES = 17;
-constexpr double TROLLEY_RADIUS = 3.5;
+constexpr int kNumTrolleyProbes = 17;
+constexpr double kTrolleyRadius = 3.5;
 
 } // ::g2field
 
