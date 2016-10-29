@@ -84,6 +84,47 @@ struct nmr_vector {
   }
 };
 
+//Trolley data structs
+struct trolley_nmr_t{
+  unsigned long int gps_clock;
+  unsigned short probe_index;
+  unsigned short length;
+  short trace[TRLY_NMR_LENGTH];
+};
+
+const char * const trolley_nmr_str = "gps_clock/l:probe_index/s:len/s:trace[TRLY_NMR_LENGTH]/s";
+
+struct trolley_barcode_t{
+  unsigned long int gps_clock;
+  unsigned short length_per_ch;
+  unsigned short traces[TRLY_BARCODE_LENGTH]; //All channels
+};
+
+const char * const trolley_barcode_str = "gps_clock/l:len_per_ch/s:traces[TRLY_BARCODE_LENGTH]/s";
+
+struct trolley_monitor_t{
+  unsigned long int gps_clock_cycle_start;
+  unsigned int PMonitorVal;
+  unsigned int PMonitorTemp;
+  unsigned int RFPower1;
+  unsigned int RFPower2;
+  unsigned short TMonitorIn;
+  unsigned short TMonitorExt1;
+  unsigned short TMonitorExt2;
+  unsigned short TMonitorExt3;
+  unsigned short V1Min;
+  unsigned short V1Max;
+  unsigned short V2Min;
+  unsigned short V2Max;
+  unsigned short length_per_ch;
+  unsigned short trace_VMonitor1[TRLY_MONITOR_LENGTH];
+  unsigned short trace_VMonitor2[TRLY_MONITOR_LENGTH];
+};
+
+const char * const trolley_monitor_str = "gps_clock_cycle_start/l:PMonitorVal/i:PMonitorTemp/i:RFPower1/i:RFPower2/i:\
+TMonitorIn/s:TMonitorExt1/s:TMonitorExt2/s:TMonitorExt3/s:V1Min/s:V1Max/s:V2Min/s:V2Max/s:len_per_ch/s:\
+trace_VMonitor1[TRLY_MONITOR_LENGTH]/s:trace_VMonitor2[TRLY_MONITOR_LENGTH]/s";
+
 } // ::g2field
 
 #endif

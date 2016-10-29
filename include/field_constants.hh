@@ -20,6 +20,12 @@ about:  A header file for constant parameters used across field team
 #define NMR_KHZ_TO_PPM 61790.0 * 1.0e-6
 #define NMR_SAMPLE_PERIOD 0.0001
 
+//Trolley literals
+#define TRLY_NMR_LENGTH 24000
+#define TRLY_BARCODE_LENGTH 3000 //ALL CHANNELS
+#define TRLY_BARCODE_CHANNELS 6
+#define TRLY_MONITOR_LENGTH 3000
+
 namespace g2field {
 
 // General constants
