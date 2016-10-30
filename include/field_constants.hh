@@ -12,6 +12,7 @@ about:  A header file for constant parameters used across field team
 
 \*===========================================================================*/
 
+#include "TROOT.h"
 
 // NMR literals
 #define NMR_NUM_FIXED_PROBES 378
