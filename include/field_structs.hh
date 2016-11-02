@@ -114,6 +114,11 @@ struct trolley_monitor_t{
   unsigned int PMonitorTemp;
   unsigned int RFPower1;
   unsigned int RFPower2;
+  unsigned int NMRCheckSum;
+  unsigned int FrameCheckSum;
+  unsigned int FrameSum;
+  unsigned int FrameIndex;
+  unsigned short StatusBits;
   unsigned short TMonitorIn;
   unsigned short TMonitorExt1;
   unsigned short TMonitorExt2;
@@ -130,6 +135,7 @@ struct trolley_monitor_t{
 #define MAKE_MONITOR_STRING(len) HELPER_MONITOR_STRING(len)
 #define HELPER_MONITOR_STRING(len) \
 const char * const trolley_monitor_str = "gps_clock_cycle_start/l:PMonitorVal/i:PMonitorTemp/i:RFPower1/i:RFPower2/i:"\
+"NMRCheckSum/i:FrameCheckSum/i:FrameSum/i:StatusBits/s:"\
 "TMonitorIn/s:TMonitorExt1/s:TMonitorExt2/s:TMonitorExt3/s:V1Min/s:V1Max/s:V2Min/s:V2Max/s:len_per_ch/s:"\
 "trace_VMonitor1["#len"]/s:trace_VMonitor2["#len"]/s"
 MAKE_MONITOR_STRING(TRLY_MONITOR_LENGTH);
