@@ -27,6 +27,12 @@ about:  A header file for constant parameters used across field team
 #define TRLY_BARCODE_CHANNELS 6
 #define TRLY_MONITOR_LENGTH 3000
 
+//Fluxgate literals
+#define FLUX_NUM_CHANNELS 9 //3 fluxgates, all three channels each
+#define FLUX_TRACE_PERIOD 60 //seconds
+#define FLUX_RATE 8000 //samples per sec
+#define FLUX_BINNED_RATE 2000 //samples per sec
+
 namespace g2field {
 
 // General constants

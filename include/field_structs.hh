@@ -140,6 +140,11 @@ const char * const trolley_monitor_str = "gps_clock_cycle_start/l:PMonitorVal/i:
 "trace_VMonitor1["#len"]/s:trace_VMonitor2["#len"]/s"
 MAKE_MONITOR_STRING(TRLY_MONITOR_LENGTH);
 
+//Fluxgate structs
+struct fluxgate{
+  float trace[FLUX_NUM_CHANNELS][FLUX_BINNED_RATE*FLUX_TRACE_PERIOD];
+}
+
 } // ::g2field
 
 #endif
