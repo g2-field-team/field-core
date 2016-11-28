@@ -27,6 +27,9 @@ about:  A header file for constant parameters used across field team
 #define TRLY_BARCODE_CHANNELS 6
 #define TRLY_MONITOR_LENGTH 3000
 
+//Galil literal
+#define GALILREADGROUPSIZE 50
+
 namespace g2field {
 
 // General constants
