@@ -155,6 +155,25 @@ const char * const name = "sys_clock["#num_coils"]/D:gps_clock["#num_coils"]/D:t
   
 MAKE_SC_STRING(sc_str,SC_NUM_COILS);
 
+//Galil Data structs
+struct galil_data_t{
+  ULong64_t TimeStamp;
+  Int_t Tensions[2];
+  Int_t Positions[3];
+  Int_t Velocities[3];
+  Int_t OutputVs[3];
+};
+
+const char * const galil_data_str = "TimeStamp/l:Tensions[2]/I:Positions[3]/I:Velocities[3]/I:OutputVs[3]/I";
+
+//This struct is auxiliary
+struct galil_data_d_t{
+  Double_t Tensions[2];
+  Double_t Positions[3];
+  Double_t Velocities[3];
+  Double_t OutputVs[3];
+};
+
 } // ::g2field
 
 #endif

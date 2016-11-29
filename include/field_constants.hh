@@ -30,6 +30,9 @@ about:  A header file for constant parameters used across field team
 //Surface coil literals
 #define SC_NUM_COILS 100
 
+//Galil literal
+#define GALILREADGROUPSIZE 50
+
 namespace g2field {
 
 // General constants
