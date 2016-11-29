@@ -27,4 +27,26 @@ about:  A header file for constant parameters used across field team
 #define TRLY_BARCODE_CHANNELS 6
 #define TRLY_MONITOR_LENGTH 3000
 
+//Galil literal
+#define GALILREADGROUPSIZE 50
+
+namespace g2field {
+
+// General constants
+constexpr double kMagicRadius = 7112.0;
+constexpr double kPoleGapZ = 180.0;
+
+// NMR constants
+constexpr int kNmrNumFixedProbes = NMR_NUM_FIXED_PROBES;
+constexpr int kNmrFidLengthOnline = NMR_FID_LENGTH_ONLINE;
+constexpr int kNmrFidLengthRecord = NMR_FID_LENGTH_RECORD;
+constexpr double kNmrKhzToPpm = NMR_KHZ_TO_PPM;
+constexpr double kNmrSamplePeriod = NMR_SAMPLE_PERIOD;
+
+// Trolley constants
+constexpr int kNumTrolleyProbes = 17;
+constexpr double kTrolleyRadius = 3.5;
+
+} // ::g2field
+
 #endif
