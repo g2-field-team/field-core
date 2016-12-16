@@ -27,6 +27,9 @@ about:  A header file for constant parameters used across field team
 #define TRLY_BARCODE_CHANNELS 6
 #define TRLY_MONITOR_LENGTH 3000
 
+//Absolute probe literals
+#define ABS_NMR_LENGTH 8000010
+
 //Surface coil literals
 #define SC_NUM_COILS 100
 

@@ -94,7 +94,7 @@ struct trolley_nmr_t{
 
 #define MAKE_TLNMR_STRING(len) HELPER_TLNMR_STRING(len)
 #define HELPER_TLNMR_STRING(len) \
-const char * const trolley_nmr_str = "gps_clock/l:probe_index/s:len/s:trace["#len"]/s"
+const char * const trolley_nmr_str = "gps_clock/l:probe_index/s:len/s:trace["#len"]/S"
 MAKE_TLNMR_STRING(TRLY_NMR_LENGTH);
 
 struct trolley_barcode_t{
@@ -140,21 +140,6 @@ const char * const trolley_monitor_str = "gps_clock_cycle_start/l:PMonitorVal/i:
 "trace_VMonitor1["#len"]/s:trace_VMonitor2["#len"]/s"
 MAKE_MONITOR_STRING(TRLY_MONITOR_LENGTH);
 
-//Surface coil struct
-struct surface_coil_t{
-  Double_t sys_clock[SC_NUM_COILS];
-  Double_t gps_clock[SC_NUM_COILS];
-  Double_t top_board[SC_NUM_COILS];
-  Double_t bot_board[SC_NUM_COILS];
-};
-
-#define MAKE_SC_STRING(name,num_coils) SC_HELPER(name,num_coils)
-
-#define SC_HELPER(name,num_coils)\
-const char * const name = "sys_clock["#num_coils"]/D:gps_clock["#num_coils"]/D:top_board["#num_coils"]/D:bot_board["#num_coils"]/D"
-  
-MAKE_SC_STRING(sc_str,SC_NUM_COILS);
-
 //Galil Data structs
 struct galil_data_t{
   ULong64_t TimeStamp;
@@ -173,6 +158,36 @@ struct galil_data_d_t{
   Double_t Velocities[3];
   Double_t OutputVs[3];
 };
+
+//Absolute probe data struct
+struct absolute_nmr_info_t{
+  ULong64_t time_stamp;
+  UInt_t length;
+  UInt_t Pos[4]; //Coordinate X,Y,Z,S
+  UShort_t flay_run_number;
+  UShort_t probe_index;
+  //Because the length of the trace varies too much, it is not included in this struct
+};
+
+#define MAKE_ABSNMR_STRING() HELPER_ABSNMR_STRING()
+#define HELPER_ABSNMR_STRING() \
+const char * const absolute_nmr_info_str = "time_stamp/l:length/i:Pos[4]/i:flay_run_number/s:probe_index/s"
+MAKE_ABSNMR_STRING();
+
+//Surface coil struct
+struct surface_coil_t{
+  Double_t sys_clock[SC_NUM_COILS];
+  Double_t gps_clock[SC_NUM_COILS];
+  Double_t top_board[SC_NUM_COILS];
+  Double_t bot_board[SC_NUM_COILS];
+};
+
+#define MAKE_SC_STRING(name,num_coils) SC_HELPER(name,num_coils)
+
+#define SC_HELPER(name,num_coils)\
+const char * const name = "sys_clock["#num_coils"]/D:gps_clock["#num_coils"]/D:top_board["#num_coils"]/D:bot_board["#num_coils"]/D"
+  
+MAKE_SC_STRING(sc_str,SC_NUM_COILS);
 
 } // ::g2field
 
