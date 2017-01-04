@@ -86,10 +86,10 @@ struct nmr_vector {
 
 //Trolley data structs
 struct trolley_nmr_t{
-  unsigned long int gps_clock;
-  unsigned short probe_index;
-  unsigned short length;
-  short trace[TRLY_NMR_LENGTH];
+  ULong64_t gps_clock;
+  UShort_t probe_index;
+  UShort_t length;
+  Short_t trace[TRLY_NMR_LENGTH];
 };
 
 #define MAKE_TLNMR_STRING(len) HELPER_TLNMR_STRING(len)
@@ -98,9 +98,9 @@ const char * const trolley_nmr_str = "gps_clock/l:probe_index/s:len/s:trace["#le
 MAKE_TLNMR_STRING(TRLY_NMR_LENGTH);
 
 struct trolley_barcode_t{
-  unsigned long int gps_clock;
-  unsigned short length_per_ch;
-  unsigned short traces[TRLY_BARCODE_LENGTH]; //All channels
+  ULong64_t gps_clock;
+  UShort_t length_per_ch;
+  UShort_t traces[TRLY_BARCODE_LENGTH]; //All channels
 };
 
 #define MAKE_BARCODE_STRING(len) HELPER_BARCODE_STRING(len)
@@ -109,27 +109,27 @@ const char * const trolley_barcode_str = "gps_clock/l:len_per_ch/s:traces["#len"
 MAKE_BARCODE_STRING(TRLY_BARCODE_LENGTH);
 
 struct trolley_monitor_t{
-  unsigned long int gps_clock_cycle_start;
-  unsigned int PMonitorVal;
-  unsigned int PMonitorTemp;
-  unsigned int RFPower1;
-  unsigned int RFPower2;
-  unsigned int NMRCheckSum;
-  unsigned int FrameCheckSum;
-  unsigned int FrameSum;
-  unsigned int FrameIndex;
-  unsigned short StatusBits;
-  unsigned short TMonitorIn;
-  unsigned short TMonitorExt1;
-  unsigned short TMonitorExt2;
-  unsigned short TMonitorExt3;
-  unsigned short V1Min;
-  unsigned short V1Max;
-  unsigned short V2Min;
-  unsigned short V2Max;
-  unsigned short length_per_ch;
-  unsigned short trace_VMonitor1[TRLY_MONITOR_LENGTH];
-  unsigned short trace_VMonitor2[TRLY_MONITOR_LENGTH];
+  ULong64_t gps_clock_cycle_start;
+  UInt_t PMonitorVal;
+  UInt_t PMonitorTemp;
+  UInt_t RFPower1;
+  UInt_t RFPower2;
+  UInt_t NMRCheckSum;
+  UInt_t FrameCheckSum;
+  UInt_t FrameSum;
+  UInt_t FrameIndex;
+  UShort_t StatusBits;
+  UShort_t TMonitorIn;
+  UShort_t TMonitorExt1;
+  UShort_t TMonitorExt2;
+  UShort_t TMonitorExt3;
+  UShort_t V1Min;
+  UShort_t V1Max;
+  UShort_t V2Min;
+  UShort_t V2Max;
+  UShort_t length_per_ch;
+  UShort_t trace_VMonitor1[TRLY_MONITOR_LENGTH];
+  UShort_t trace_VMonitor2[TRLY_MONITOR_LENGTH];
 };
 
 #define MAKE_MONITOR_STRING(len) HELPER_MONITOR_STRING(len)
@@ -163,7 +163,7 @@ struct galil_data_d_t{
 struct absolute_nmr_info_t{
   ULong64_t time_stamp;
   UInt_t length;
-  UInt_t Pos[4]; //Coordinate X,Y,Z,S
+  Int_t Pos[4]; //Coordinate X,Y,Z,S
   UShort_t flay_run_number;
   UShort_t probe_index;
   //Because the length of the trace varies too much, it is not included in this struct
