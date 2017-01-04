@@ -174,6 +174,13 @@ struct absolute_nmr_info_t{
 const char * const absolute_nmr_info_str = "time_stamp/l:length/i:Pos[4]/i:flay_run_number/s:probe_index/s"
 MAKE_ABSNMR_STRING();
 
+// Absolute calibration NMR structs
+MAKE_NMR_STRUCT(abs_fixed_t, ABS_NMR_NUM_FIXED_PROBES, NMR_FID_LENGTH_RECORD);
+MAKE_NMR_STRING(abs_fixed_str, ABS_NMR_NUM_FIXED_PROBES, NMR_FID_LENGTH_RECORD);
+
+MAKE_NMR_STRUCT(abs_online_fixed_t, ABS_NMR_NUM_FIXED_PROBES, NMR_FID_LENGTH_ONLINE);
+MAKE_NMR_STRING(abs_online_fixed_str, ABS_NMR_NUM_FIXED_PROBES, NMR_FID_LENGTH_ONLINE);
+
 //Surface coil struct
 struct surface_coil_t{
   Double_t sys_clock[SC_NUM_COILS];
