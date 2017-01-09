@@ -142,16 +142,17 @@ MAKE_MONITOR_STRING(TRLY_MONITOR_LENGTH);
 
 //Surface coil struct
 struct surface_coil_t{
-  Double_t sys_clock[SC_NUM_COILS];
-  Double_t gps_clock[SC_NUM_COILS];
-  Double_t top_board[SC_NUM_COILS];
-  Double_t bot_board[SC_NUM_COILS];
+  Double_t sys_clock;
+  Double_t bot_coil_currents[SC_NUM_COILS];
+  Double_t top_coil_currents[SC_NUM_COILS];
+  Double_t bot_coil_temps[SC_NUM_COILS];
+  Double_t top_coil_temps[SC_NUM_COILS];
 };
 
 #define MAKE_SC_STRING(name,num_coils) SC_HELPER(name,num_coils)
 
 #define SC_HELPER(name,num_coils)\
-const char * const name = "sys_clock["#num_coils"]/D:gps_clock["#num_coils"]/D:top_board["#num_coils"]/D:bot_board["#num_coils"]/D"
+const char * const name = "sys_clock/D:bot_coil_currents["#num_coils"]/D:top_coil_currents["#num_coils"]/D:bot_coil_temps["#num_coils"]/D:top_coil_temps["#num_coils"]/D"
   
 MAKE_SC_STRING(sc_str,SC_NUM_COILS);
 
