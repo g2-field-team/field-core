@@ -27,8 +27,16 @@ about:  A header file for constant parameters used across field team
 #define TRLY_BARCODE_CHANNELS 6
 #define TRLY_MONITOR_LENGTH 3000
 
-//Surface coil literals
+//Absolute probe literals
+#define ABS_NMR_LENGTH 8000010
+#define ABS_NMR_NUM_FIXED_PROBES 8
+#define ABS_NMR_KHZ_TO_PPM 61679.0 * 1.0e-6
+
+// Surface coil literals
 #define SC_NUM_COILS 100
+
+// Galil literal
+#define GALILREADGROUPSIZE 50
 
 namespace g2field {
 
@@ -46,6 +54,10 @@ constexpr double kNmrSamplePeriod = NMR_SAMPLE_PERIOD;
 // Trolley constants
 constexpr int kNumTrolleyProbes = 17;
 constexpr double kTrolleyRadius = 3.5;
+
+// Absolute calibration constants 
+constexpr int kAbsNmrNumFixedProbes = ABS_NMR_NUM_FIXED_PROBES;
+constexpr double kAbsNmrKhzToPpm = ABS_NMR_KHZ_TO_PPM;
 
 //Surface coil constants
 constexpr int kNumSCoils = SC_NUM_COILS;
