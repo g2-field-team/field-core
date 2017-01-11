@@ -183,7 +183,8 @@ MAKE_NMR_STRING(abs_online_fixed_str, ABS_NMR_NUM_FIXED_PROBES, NMR_FID_LENGTH_O
 
 //Surface coil struct
 struct surface_coil_t{
-  Double_t sys_clock;
+  Double_t bot_sys_clock[SC_NUM_COILS];
+  Double_t top_sys_clock[SC_NUM_COILS];
   Double_t bot_coil_currents[SC_NUM_COILS];
   Double_t top_coil_currents[SC_NUM_COILS];
   Double_t bot_coil_temps[SC_NUM_COILS];
@@ -193,7 +194,7 @@ struct surface_coil_t{
 #define MAKE_SC_STRING(name,num_coils) SC_HELPER(name,num_coils)
 
 #define SC_HELPER(name,num_coils)\
-const char * const name = "sys_clock/D:bot_coil_currents["#num_coils"]/D:top_coil_currents["#num_coils"]/D:bot_coil_temps["#num_coils"]/D:top_coil_temps["#num_coils"]/D"
+const char * const name = "sys_clock["#num_coils"]/D:bot_coil_currents["#num_coils"]/D:top_coil_currents["#num_coils"]/D:bot_coil_temps["#num_coils"]/D:top_coil_temps["#num_coils"]/D"
   
 MAKE_SC_STRING(sc_str,SC_NUM_COILS);
 
