@@ -21,7 +21,7 @@ about:  A header file for constant parameters used across field team
 #define EVENTID_ABS_PROBE 0x0008
 #define EVENTID_SURFACE_COIL 0x0010
 #define EVENTID_FLUXGATE 0x0020
-#define EVENTID_GALIL_PLATFORM 0x8000
+#define EVENTID_GALIL_PLATFORM 0x4000
 
 // NMR literals
 #define NMR_NUM_FIXED_PROBES 378
