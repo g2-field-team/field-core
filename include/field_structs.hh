@@ -198,6 +198,21 @@ const char * const name = "sys_clock["#num_coils"]/D:bot_coil_currents["#num_coi
   
 MAKE_SC_STRING(sc_str,SC_NUM_COILS);
 
+// Yokogawa struct 
+struct yokogawa_t{
+	ULong64_t sys_clock;   // system clock
+	ULong64_t gps_clock;   // GPS clock 
+	Int_t mode;            // device mode (0 = voltage, 1 = current)  
+	Int_t is_enabled;      // is the output enabled (0 = false, 1 = true) 
+	Double_t current;      // current setting (in mA) 
+	Double_t voltage;      // voltage setting (in V) 
+};
+
+#define MAKE_YOKO_STRING() HELPER_YOKO_STRING() 
+#define HELPER_YOKO_STRING() \
+	const char * const yokogawa_str = "sys_clock/l:gps_clock/l:is_enabled/i:current/D"
+MAKE_YOKO_STRING();
+
 } // ::g2field
 
 #endif
