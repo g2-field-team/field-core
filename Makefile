@@ -1,9 +1,10 @@
 # Locations and default files
-INC_DIR = ./include
 PREFIX=/usr/local
-INCINSTALLDIR=$(PREFIX)/include/g2field/core
+INSTALL_DIR=$(PREFIX)/include/g2field/core
+
+all:
 
 install:
-	mkdir -p $(INCINSTALLDIR)
-	install $(INC_DIR)/*.hh $(INCINSTALLDIR)
+	mkdir -p $(INSTALL_DIR)
+	install *.hh $(INSTALL_DIR)
 
