@@ -14,6 +14,15 @@ about:  A header file for constant parameters used across field team
 
 #include "TROOT.h"
 
+//Midas EventID for each equipment
+#define EVENTID_FIXED_PROBES 0x0001
+#define EVENTID_TROLLEY 0x0002
+#define EVENTID_GALIL 0x0004
+#define EVENTID_ABS_PROBE 0x0008
+#define EVENTID_SURFACE_COIL 0x0010
+#define EVENTID_FLUXGATE 0x0020
+#define EVENTID_GALIL_PLATFORM 0x4000
+
 // NMR literals
 #define NMR_NUM_FIXED_PROBES 378
 #define NMR_FID_LENGTH_ONLINE 100000
