@@ -14,20 +14,20 @@ about:  A header file for constant parameters used across field team
 
 #include "TROOT.h"
 
-// NMR literals
-#define NMR_NUM_FIXED_PROBES 378
-#define NMR_FID_LENGTH_ONLINE 100000
-#define NMR_FID_LENGTH_RECORD 10000
-#define NMR_KHZ_TO_PPM 61790.0 * 1.0e-6
-#define NMR_SAMPLE_PERIOD 0.0001
+// Fixed Probe literals
+#define FIXED_NMR_NUM_PROBES 378
+#define FIXED_NMR_FULL_FID_LENGTH 100000
+#define FIXED_NMR_SAVE_FID_LENGTH 10000
+#define FIXED_NMR_KHZ_TO_PPM 61790.0 * 1.0e-6
+#define FIXED_NMR_SAMPLE_PERIOD_MS 0.0001
 
-//Trolley literals
+// Trolley literals
 #define TRLY_NMR_LENGTH 24000
 #define TRLY_BARCODE_LENGTH 3000 //ALL CHANNELS
 #define TRLY_BARCODE_CHANNELS 6
 #define TRLY_MONITOR_LENGTH 3000
 
-//Absolute probe literals
+// Absolute probe literals
 #define ABS_NMR_LENGTH 8000010
 #define ABS_NMR_NUM_FIXED_PROBES 8
 #define ABS_NMR_KHZ_TO_PPM 61679.0 * 1.0e-6
@@ -42,14 +42,13 @@ namespace g2field {
 
 // General constants
 constexpr double kMagicRadius = 7112.0;
-constexpr double kPoleGapZ = 180.0;
 
-// NMR constants
-constexpr int kNmrNumFixedProbes = NMR_NUM_FIXED_PROBES;
-constexpr int kNmrFidLengthOnline = NMR_FID_LENGTH_ONLINE;
-constexpr int kNmrFidLengthRecord = NMR_FID_LENGTH_RECORD;
-constexpr double kNmrKhzToPpm = NMR_KHZ_TO_PPM;
-constexpr double kNmrSamplePeriod = NMR_SAMPLE_PERIOD;
+// Fixed Prob constants
+constexpr int kFixedNmrNumFixedProbes = FIXED_NMR_NUM_PROBES;
+constexpr int kFixedNmrFullFidLength = FIXED_NMR_FULL_FID_LENGTH;
+constexpr int kFixedNmrSaveFidLength = FIXED_NMR_SAVE_FID_LENGTH;
+constexpr double kFixedNmrKhzToPpm = FIXED_NMR_KHZ_TO_PPM;
+constexpr double kFixedNmrSamplePeriodMs = FIXED_NMR_SAMPLE_PERIOD_MS;
 
 // Trolley constants
 constexpr int kNumTrolleyProbes = 17;

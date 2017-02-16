@@ -21,7 +21,7 @@ about:  A header file for constant parameters used across field team
 namespace g2field {
 
 // A macro to define nmr structs since they are very similar.
-#define MAKE_NMR_STRUCT(name, num_ch, len_tr)\
+#define FIXED_NMR_STRUCT(name, num_ch, len_tr)\
 struct name {\
   Double_t sys_clock[num_ch];\
   Double_t gps_clock[num_ch];\
@@ -38,23 +38,33 @@ struct name {\
 };
 
 // Might as well define a root branch string for the struct.
-#define MAKE_NMR_STRING(name, num_ch, len_tr) NMR_HELPER(name, num_ch, len_tr)
+#define FIXED_NMR_STRING(name, num_ch, len_tr) NMR_HELPER(name, num_ch, len_tr)
 
-#define NMR_HELPER(name, num_ch, len_tr) \
+#define FIXED_NMR_HELPER(name, num_ch, len_tr) \
 const char * const name = "sys_clock["#num_ch"]/D:gps_clock["#num_ch"]/D:"\
 "dev_clock["#num_ch"]/D:snr["#num_ch"]/D:len["#num_ch"]/D:freq["#num_ch"]/D:"\
 "ferr["#num_ch"]/D:freq_zc["#num_ch"]/D:ferr_zc["#num_ch"]/D:"\
 "health["#num_ch"]/s:method["#num_ch"]/s:trace["#num_ch"]["#len_tr"]/s"
 
-// NMR structs
-MAKE_NMR_STRUCT(fixed_t, NMR_NUM_FIXED_PROBES, NMR_FID_LENGTH_RECORD);
-MAKE_NMR_STRING(fixed_str, NMR_NUM_FIXED_PROBES, NMR_FID_LENGTH_RECORD);
+// Make fixed probe structs.
+FIXED_NMR_STRUCT(fixed_nmr_t, 
+		 FIXED_NMR_NUM_PROBES, 
+		 FIXED_NMR_SAVE_FID_LENGTH);
 
-MAKE_NMR_STRUCT(online_fixed_t, NMR_NUM_FIXED_PROBES, NMR_FID_LENGTH_ONLINE);
-MAKE_NMR_STRING(online_fixed_str, NMR_NUM_FIXED_PROBES, NMR_FID_LENGTH_ONLINE);
+FIXED_NMR_STRING(fixed_nmr_str, 
+		 FIXED_NMR_NUM_PROBES, 
+		 FIXED_NMR_SAVE_FID_LENGTH);
+
+FIXED_NMR_STRUCT(fixed_nmr_full_t, 
+		 FIXED_NMR_NUM_PROBES, 
+		 FIXED_NMR_FULL_FID_LENGTH);
+
+FIXED_NMR_STRING(fixed_nmr_full_str, 
+		 FIXED_NMR_NUM_PROBES, 
+		 FIXED_NMR_FULL_FID_LENGTH);
 
 // Flexible struct built from the basic nmr attributes.
-struct nmr_vector {
+struct fixed_nmr_vec {
   std::vector<Double_t> sys_clock;
   std::vector<Double_t> gps_clock;
   std::vector<Double_t> dev_clock;
