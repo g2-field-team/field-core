@@ -89,23 +89,39 @@ struct trolley_nmr_t{
   ULong64_t gps_clock;
   UShort_t probe_index;
   UShort_t length;
+  UShort_t TS_offSet;
+  UShort_t RF_Prescale;
+  UShort_t Probe_Command;	
+  UShort_t Preamp_Delay;
+  UShort_t Preamp_Period;
+  UShort_t ADC_Gate_Delay;
+  UShort_t ADC_Gate_Offset;
+  UShort_t ADC_Gate_Period;
+  UShort_t TX_Delay;
+  UShort_t TX_Period;
+  UShort_t UserDefinedData;
   Short_t trace[TRLY_NMR_LENGTH];
 };
 
 #define MAKE_TLNMR_STRING(len) HELPER_TLNMR_STRING(len)
 #define HELPER_TLNMR_STRING(len) \
-const char * const trolley_nmr_str = "gps_clock/l:probe_index/s:len/s:trace["#len"]/S"
+const char * const trolley_nmr_str = "gps_clock/l:probe_index/s:len/s:TS_Offset/s:RF_Prescale/s:Probe_Command/s:Preamp_Delay/s:Preamp_Period/s:ADC_Gate_Delay/s:ADC_Gate_Offset/s:ADC_Gate_Period/s:TX_Delay/s:TX_Period/s:UserDefinedData/s:trace["#len"]/S"
 MAKE_TLNMR_STRING(TRLY_NMR_LENGTH);
 
 struct trolley_barcode_t{
   ULong64_t gps_clock;
   UShort_t length_per_ch;
+  UShort_t Sampling_Period;
+  UShort_t Acquisition_Delay;
+  UShort_t DAC_1_Config;	
+  UShort_t DAC_2_Config;
+  UShort_t Ref_CM;
   UShort_t traces[TRLY_BARCODE_LENGTH]; //All channels
 };
 
 #define MAKE_BARCODE_STRING(len) HELPER_BARCODE_STRING(len)
 #define HELPER_BARCODE_STRING(len) \
-const char * const trolley_barcode_str = "gps_clock/l:len_per_ch/s:traces["#len"]/s"
+const char * const trolley_barcode_str = "gps_clock/l:len_per_ch/s:Sampling_Period/s:Acquisition_Delay/s:DAC_1_Config/s:DAC_2_Config/s:Ref_CM/s:traces["#len"]/s"
 MAKE_BARCODE_STRING(TRLY_BARCODE_LENGTH);
 
 struct trolley_monitor_t{
@@ -115,7 +131,10 @@ struct trolley_monitor_t{
   UInt_t RFPower1;
   UInt_t RFPower2;
   UInt_t NMRCheckSum;
+  UInt_t ConfigCheckSum;
   UInt_t FrameCheckSum;
+  UInt_t NMRFrameSum;
+  UInt_t ConfigFrameSum;
   UInt_t FrameSum;
   UInt_t FrameIndex;
   UShort_t StatusBits;
@@ -128,6 +147,19 @@ struct trolley_monitor_t{
   UShort_t V2Min;
   UShort_t V2Max;
   UShort_t length_per_ch;
+  UShort_t Trolley Command;
+  UShort_t TIC_Stop;
+  UShort_t TC_Start;
+  UShort_t TD_Start;
+  UShort_t TC_Stop;
+  UShort_t Switch_RF;	
+  UShort_t PowerEnable;
+  UShort_t RF_Enable;
+  UShort_t Switch_Comm;
+  UShort_t TIC_Start;
+  UShort_t Cycle_Length;
+  UShort_t Power_Control_1;
+  UShort_t Power_Control_2;
   UShort_t trace_VMonitor1[TRLY_MONITOR_LENGTH];
   UShort_t trace_VMonitor2[TRLY_MONITOR_LENGTH];
 };
@@ -135,8 +167,10 @@ struct trolley_monitor_t{
 #define MAKE_MONITOR_STRING(len) HELPER_MONITOR_STRING(len)
 #define HELPER_MONITOR_STRING(len) \
 const char * const trolley_monitor_str = "gps_clock_cycle_start/l:PMonitorVal/i:PMonitorTemp/i:RFPower1/i:RFPower2/i:"\
-"NMRCheckSum/i:FrameCheckSum/i:FrameSum/i:StatusBits/s:"\
+"NMRCheckSum/i:ConfigCheckSum/i:FrameCheckSum/i:NMRFrameSum/i:ConfigFrameSum/i:FrameSum/i:FrameIndex/i:StatusBits/s:"\
 "TMonitorIn/s:TMonitorExt1/s:TMonitorExt2/s:TMonitorExt3/s:V1Min/s:V1Max/s:V2Min/s:V2Max/s:len_per_ch/s:"\
+"Trolley Command/s:TIC_Stop/s:TC_Start/s:TD_Start/s:TC_Stop/s:Switch_RF/s:PowerEnable/s:RF_Enable/s:"\
+"Switch_Comm/s:TIC_Start/s:Cycle_Length/s:Power_Control_1/s:Power_Control_2/s:"\
 "trace_VMonitor1["#len"]/s:trace_VMonitor2["#len"]/s"
 MAKE_MONITOR_STRING(TRLY_MONITOR_LENGTH);
 
