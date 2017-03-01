@@ -86,10 +86,10 @@ struct nmr_vector {
 
 //Trolley data structs
 struct trolley_nmr_t{
-  ULong64_t gps_clock;
+  ULong64_t local_clock;
   UShort_t probe_index;
   UShort_t length;
-  UShort_t TS_offSet;
+  UShort_t TS_OffSet;
   UShort_t RF_Prescale;
   UShort_t Probe_Command;	
   UShort_t Preamp_Delay;
@@ -97,6 +97,7 @@ struct trolley_nmr_t{
   UShort_t ADC_Gate_Delay;
   UShort_t ADC_Gate_Offset;
   UShort_t ADC_Gate_Period;
+  UShort_t TX_On;
   UShort_t TX_Delay;
   UShort_t TX_Period;
   UShort_t UserDefinedData;
@@ -105,11 +106,11 @@ struct trolley_nmr_t{
 
 #define MAKE_TLNMR_STRING(len) HELPER_TLNMR_STRING(len)
 #define HELPER_TLNMR_STRING(len) \
-const char * const trolley_nmr_str = "gps_clock/l:probe_index/s:len/s:TS_Offset/s:RF_Prescale/s:Probe_Command/s:Preamp_Delay/s:Preamp_Period/s:ADC_Gate_Delay/s:ADC_Gate_Offset/s:ADC_Gate_Period/s:TX_Delay/s:TX_Period/s:UserDefinedData/s:trace["#len"]/S"
+const char * const trolley_nmr_str = "gps_clock/l:probe_index/s:len/s:TS_Offset/s:RF_Prescale/s:Probe_Command/s:Preamp_Delay/s:Preamp_Period/s:ADC_Gate_Delay/s:ADC_Gate_Offset/s:ADC_Gate_Period/s:TX_On/s:TX_Delay/s:TX_Period/s:UserDefinedData/s:trace["#len"]/S"
 MAKE_TLNMR_STRING(TRLY_NMR_LENGTH);
 
 struct trolley_barcode_t{
-  ULong64_t gps_clock;
+  ULong64_t local_clock;
   UShort_t length_per_ch;
   UShort_t Sampling_Period;
   UShort_t Acquisition_Delay;
@@ -125,7 +126,7 @@ const char * const trolley_barcode_str = "gps_clock/l:len_per_ch/s:Sampling_Peri
 MAKE_BARCODE_STRING(TRLY_BARCODE_LENGTH);
 
 struct trolley_monitor_t{
-  ULong64_t gps_clock_cycle_start;
+  ULong64_t local_clock_cycle_start;
   UInt_t PMonitorVal;
   UInt_t PMonitorTemp;
   UInt_t RFPower1;
@@ -147,7 +148,7 @@ struct trolley_monitor_t{
   UShort_t V2Min;
   UShort_t V2Max;
   UShort_t length_per_ch;
-  UShort_t Trolley Command;
+  UShort_t Trolley_Command;
   UShort_t TIC_Stop;
   UShort_t TC_Start;
   UShort_t TD_Start;
