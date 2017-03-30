@@ -176,23 +176,25 @@ const char * const trolley_monitor_str = "gps_clock_cycle_start/l:PMonitorVal/i:
 MAKE_MONITOR_STRING(TRLY_MONITOR_LENGTH);
 
 //Galil Data structs
-struct galil_data_t{
+struct galil_trolley_t{
   ULong64_t TimeStamp;
   Int_t Tensions[2];
+  Int_t Temperatures[2];
   Int_t Positions[3];
   Int_t Velocities[3];
   Int_t OutputVs[3];
 };
 
-const char * const galil_data_str = "TimeStamp/l:Tensions[2]/I:Positions[3]/I:Velocities[3]/I:OutputVs[3]/I";
+const char * const galil_trolley_str = "TimeStamp/l:Tensions[2]/I:Positions[3]/I:Velocities[3]/I:OutputVs[3]/I";
 
-//This struct is auxiliary
-struct galil_data_d_t{
-  Double_t Tensions[2];
-  Double_t Positions[3];
-  Double_t Velocities[3];
-  Double_t OutputVs[3];
+struct galil_plunging_probe_t{
+  ULong64_t TimeStamp;
+  Int_t Positions[3];
+  Int_t Velocities[3];
+  Int_t OutputVs[3];
 };
+
+const char * const galil_plunging_probe_str = "TimeStamp/l:Positions[3]/I:Velocities[3]/I:OutputVs[3]/I";
 
 //Absolute probe data struct
 struct absolute_nmr_info_t{
