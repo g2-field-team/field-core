@@ -185,7 +185,7 @@ struct galil_trolley_t{
   Int_t OutputVs[3];
 };
 
-const char * const galil_trolley_str = "TimeStamp/l:Tensions[2]/I:Positions[3]/I:Velocities[3]/I:OutputVs[3]/I";
+const char * const galil_trolley_str = "TimeStamp/l:Tensions[2]/I:Temperatures[2]:Positions[3]/I:Velocities[3]/I:OutputVs[3]/I";
 
 struct galil_plunging_probe_t{
   ULong64_t TimeStamp;
