@@ -25,10 +25,10 @@ about:  A header file for constant parameters used across field team
 
 // NMR literals
 #define NMR_NUM_FIXED_PROBES 378
-#define NMR_FID_LENGTH_ONLINE 100000
-#define NMR_FID_LENGTH_RECORD 10000
-#define NMR_KHZ_TO_PPM 61790.0 * 1.0e-6
+#define NMR_FID_LENGTH_ONLINE 40960
+#define NMR_FID_LENGTH_RECORD 4096
 #define NMR_SAMPLE_PERIOD 0.0001
+#define NMR_KHZ_TO_PPM 61790.0 * 1.0e-6
 
 //Trolley literals
 #define TRLY_NMR_LENGTH 24000
@@ -48,10 +48,6 @@ about:  A header file for constant parameters used across field team
 #define GALILREADGROUPSIZE 50
 
 namespace g2field {
-
-// General constants
-constexpr double kMagicRadius = 7112.0;
-constexpr double kPoleGapZ = 180.0;
 
 // NMR constants
 constexpr int kNmrNumFixedProbes = NMR_NUM_FIXED_PROBES;
