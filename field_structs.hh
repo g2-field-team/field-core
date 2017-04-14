@@ -106,7 +106,7 @@ struct trolley_nmr_t{
 
 #define MAKE_TLNMR_STRING(len) HELPER_TLNMR_STRING(len)
 #define HELPER_TLNMR_STRING(len) \
-const char * const trolley_nmr_str = "gps_clock/l:probe_index/s:len/s:TS_Offset/s:RF_Prescale/s:Probe_Command/s:Preamp_Delay/s:Preamp_Period/s:ADC_Gate_Delay/s:ADC_Gate_Offset/s:ADC_Gate_Period/s:TX_On/s:TX_Delay/s:TX_Period/s:UserDefinedData/s:trace["#len"]/S"
+const char * const trolley_nmr_str = "local_clock/l:probe_index/s:len/s:TS_Offset/s:RF_Prescale/s:Probe_Command/s:Preamp_Delay/s:Preamp_Period/s:ADC_Gate_Delay/s:ADC_Gate_Offset/s:ADC_Gate_Period/s:TX_On/s:TX_Delay/s:TX_Period/s:UserDefinedData/s:trace["#len"]/S"
 MAKE_TLNMR_STRING(TRLY_NMR_LENGTH);
 
 struct trolley_barcode_t{
@@ -122,7 +122,7 @@ struct trolley_barcode_t{
 
 #define MAKE_BARCODE_STRING(len) HELPER_BARCODE_STRING(len)
 #define HELPER_BARCODE_STRING(len) \
-const char * const trolley_barcode_str = "gps_clock/l:len_per_ch/s:Sampling_Period/s:Acquisition_Delay/s:DAC_1_Config/s:DAC_2_Config/s:Ref_CM/s:traces["#len"]/s"
+const char * const trolley_barcode_str = "local_clock/l:len_per_ch/s:Sampling_Period/s:Acquisition_Delay/s:DAC_1_Config/s:DAC_2_Config/s:Ref_CM/s:traces["#len"]/s"
 MAKE_BARCODE_STRING(TRLY_BARCODE_LENGTH);
 
 struct trolley_monitor_t{
@@ -167,13 +167,58 @@ struct trolley_monitor_t{
 
 #define MAKE_MONITOR_STRING(len) HELPER_MONITOR_STRING(len)
 #define HELPER_MONITOR_STRING(len) \
-const char * const trolley_monitor_str = "gps_clock_cycle_start/l:PMonitorVal/i:PMonitorTemp/i:RFPower1/i:RFPower2/i:"\
+const char * const trolley_monitor_str = "local_clock_cycle_start/l:PMonitorVal/i:PMonitorTemp/i:RFPower1/i:RFPower2/i:"\
 "NMRCheckSum/i:ConfigCheckSum/i:FrameCheckSum/i:NMRFrameSum/i:ConfigFrameSum/i:FrameSum/i:FrameIndex/i:StatusBits/s:"\
 "TMonitorIn/s:TMonitorExt1/s:TMonitorExt2/s:TMonitorExt3/s:V1Min/s:V1Max/s:V2Min/s:V2Max/s:len_per_ch/s:"\
 "Trolley Command/s:TIC_Stop/s:TC_Start/s:TD_Start/s:TC_Stop/s:Switch_RF/s:PowerEnable/s:RF_Enable/s:"\
 "Switch_Comm/s:TIC_Start/s:Cycle_Length/s:Power_Control_1/s:Power_Control_2/s:"\
 "trace_VMonitor1["#len"]/s:trace_VMonitor2["#len"]/s"
 MAKE_MONITOR_STRING(TRLY_MONITOR_LENGTH);
+
+struct trolley_interface_t{
+  ULong64_t gps_clock_cycle_start;
+  ULong64_t local_clock_cycle_start;
+  ULong64_t local_clock_iv;
+  UInt_t rf_power0;
+  UInt_t rf_power1;
+  UShort_t rf_switch_offset;
+  UShort_t comm_switch_offset;
+  UShort_t n_iv_samples;
+  UShort_t power_protection_trip;
+  UShort_t power_status;
+  UShort_t ldo_temp_monitor_min;
+  UShort_t ldo_temp_monitor_max;
+  UShort_t v_15neg_min;
+  UShort_t v_15neg_max;
+  UShort_t v_15pos_min;
+  UShort_t v_15pos_max;
+  UShort_t v_5_min;
+  UShort_t v_5_max;
+  UShort_t v_33_min;
+  UShort_t v_33_max;
+  UShort_t trace_v_monitor[TRLY_INTERFACE_MONITOR_LENGTH];
+  UShort_t trace_i_monitor[TRLY_INTERFACE_MONITOR_LENGTH];
+};
+
+#define MAKE_INTERFACE_STRING(len) HELPER_INTERFACE_STRING(len)
+#define HELPER_INTERFACE_STRING(len) \
+const char * const trolley_interface_str = "gps_clock_cycle_start/l:local_clock_cycle_start/l:local_clock_iv/l:"\
+"rf_power0/i:rf_power1/i:rf_switch_offset/s:comm_switch_offset/s:n_iv_samples/s:power_protection_trip/s:power_status/s:"\
+"ldo_temp_monitor_min/s:ldo_temp_monitor_max/s:v_15neg_min/s:v_15neg_max/s:v_15pos_min/s:v_15pos_max/s:"\
+"v_5_min/s:v_5_max/s:v_33_min/s:v_33_max/s:"\
+"trace_v_monitor["#len"]/s:trace_i_monitor2["#len"]/s"
+MAKE_INTERFACE_STRING(TRLY_INTERFACE_MONITOR_LENGTH);
+
+struct trolley_extra_t{
+  Double_t GalilTime;
+  Int_t GalilPos[2];
+  Int_t GalilVel[2];
+};
+
+#define MAKE_TRLYEXTRA_STRING() HELPER_TRLYEXTRA_STRING()
+#define HELPER_TRLYEXTRA_STRING() \
+const char * const trolley_extra_str = "GalilTIME/D:GalilPos[2]/I:GalilVel[2]/I"
+MAKE_TRLYEXTRA_STRING();
 
 //Galil Data structs
 struct galil_trolley_t{
