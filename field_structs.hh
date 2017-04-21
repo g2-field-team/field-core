@@ -205,12 +205,12 @@ struct trolley_interface_t{
 const char * const trolley_interface_str = "gps_clock_cycle_start/l:local_clock_cycle_start/l:local_clock_iv/l:"\
 "rf_power0/i:rf_power1/i:rf_switch_offset/s:comm_switch_offset/s:n_iv_samples/s:power_protection_trip/s:power_status/s:"\
 "ldo_temp_monitor_min/s:ldo_temp_monitor_max/s:v_15neg_min/s:v_15neg_max/s:v_15pos_min/s:v_15pos_max/s:"\
-"v_5_min/s:v_5_max/s:v_33_min/s:v_33_max/s:"\
-"trace_v_monitor["#len"]/s:trace_i_monitor2["#len"]/s"
+"v_5_min/s:v_5_max/s:v_33_min/s:v_33_max/s:trace_v_monitor["#len"]/s:trace_i_monitor["#len"]/s"
 MAKE_INTERFACE_STRING(TRLY_INTERFACE_MONITOR_LENGTH);
 
 struct trolley_extra_t{
   Double_t GalilTime;
+  Int_t Source;
   Int_t GalilPos[2];
   Int_t GalilVel[2];
 };
