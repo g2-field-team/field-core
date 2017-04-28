@@ -23,11 +23,13 @@ namespace g2field {
 // A macro to define nmr structs since they are very similar.
 #define MAKE_NMR_STRUCT(name, num_ch, len_tr)\
 struct name {\
-  Double_t sys_clock[num_ch];\
-  Double_t gps_clock[num_ch];\
-  Double_t dev_clock[num_ch];\
-  Double_t snr[num_ch];\
-  Double_t len[num_ch];\
+  ULong64_t clock_sys_ns[num_ch];\
+  ULong64_t clock_gps_ns[num_ch];\
+  ULong64_t device_clock[num_ch];\
+  Double_t device_rate_mhz[num_ch];\
+  Double_t device_gain_vpp[num_ch];\
+  Double_t fid_snr[num_ch];\
+  Double_t fid_len[num_ch];\
   Double_t freq[num_ch];\
   Double_t ferr[num_ch];\
   Double_t freq_zc[num_ch];\
@@ -41,8 +43,10 @@ struct name {\
 #define MAKE_NMR_STRING(name, num_ch, len_tr) NMR_HELPER(name, num_ch, len_tr)
 
 #define NMR_HELPER(name, num_ch, len_tr) \
-const char * const name = "sys_clock["#num_ch"]/D:gps_clock["#num_ch"]/D:"\
-"dev_clock["#num_ch"]/D:snr["#num_ch"]/D:len["#num_ch"]/D:freq["#num_ch"]/D:"\
+const char * const name = "clock_sys_ns["#num_ch"]/l:"\
+"clock_gps_ns["#num_ch"]/l:device_clock["#num_ch"]/l:"\
+"device_rate_mhz["#num_ch"]/D:device_gain_vpp["#num_ch"]\D:"\
+"fid_snr["#num_ch"]/D:fid_len["#num_ch"]/D:freq["#num_ch"]/D:"\
 "ferr["#num_ch"]/D:freq_zc["#num_ch"]/D:ferr_zc["#num_ch"]/D:"\
 "health["#num_ch"]/s:method["#num_ch"]/s:trace["#num_ch"]["#len_tr"]/s"
 
@@ -55,11 +59,13 @@ MAKE_NMR_STRING(online_fixed_str, NMR_NUM_FIXED_PROBES, NMR_FID_LENGTH_ONLINE);
 
 // Flexible struct built from the basic nmr attributes.
 struct nmr_vector {
-  std::vector<Double_t> sys_clock;
-  std::vector<Double_t> gps_clock;
-  std::vector<Double_t> dev_clock;
-  std::vector<Double_t> snr;
-  std::vector<Double_t> len;
+  std::vector<ULong64_t> clock_sys_ns;
+  std::vector<ULong64_t> clock_gps_ns;
+  std::vector<ULong64_t> device_clock;
+  std::vector<Double_t> device_rate_mhz;
+  std::vector<Double_t> device_gain_vpp;
+  std::vector<Double_t> fid_snr;
+  std::vector<Double_t> fid_len;
   std::vector<Double_t> freq;
   std::vector<Double_t> ferr;
   std::vector<Double_t> freq_zc;
@@ -69,11 +75,13 @@ struct nmr_vector {
   std::vector< std::array<UShort_t, NMR_FID_LENGTH_ONLINE> > trace;
 
   inline void Resize(int size) {
-    sys_clock.resize(size);
-    gps_clock.resize(size);
-    dev_clock.resize(size);
-    snr.resize(size);
-    len.resize(size);
+    clock_sys_ns.resize(size);
+    clock_gps_ns.resize(size);
+    device_clock.resize(size);
+    device_rate_mhz.resize(size);
+    device_gain_vpp.resize(size);
+    fid_snr.resize(size);
+    fid_len.resize(size);
     freq.resize(size);
     ferr.resize(size);
     freq_zc.resize(size);
