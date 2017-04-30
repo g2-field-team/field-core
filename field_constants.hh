@@ -18,10 +18,11 @@ about:  A header file for constant parameters used across field team
 #define EVENTID_FIXED_PROBES 0x0001
 #define EVENTID_TROLLEY 0x0002
 #define EVENTID_GALIL_FERMI 0x0004
-#define EVENTID_ABS_PROBE 0x0008
+#define EVENTID_PLUNGING_PROBE 0x0008
 #define EVENTID_SURFACE_COIL 0x0010
 #define EVENTID_FLUXGATE 0x0020
-#define EVENTID_GALIL_PLATFORM 0x4000
+#define EVENTID_ABS_PROBE 0x2000
+#define EVENTID_GALIL_ARGONNE 0x4000
 
 // NMR literals
 #define NMR_NUM_FIXED_PROBES 378
@@ -31,10 +32,10 @@ about:  A header file for constant parameters used across field team
 #define NMR_KHZ_TO_PPM 61790.0 * 1.0e-6
 
 //Trolley literals
-#define TRLY_NMR_LENGTH 24000
-#define TRLY_BARCODE_LENGTH 3000 //ALL CHANNELS
+#define TRLY_NMR_LENGTH 16000
+#define TRLY_BARCODE_LENGTH 2000 //ALL CHANNELS
 #define TRLY_BARCODE_CHANNELS 6
-#define TRLY_MONITOR_LENGTH 3000
+#define TRLY_MONITOR_LENGTH 2000
 #define TRLY_INTERFACE_MONITOR_LENGTH 12000
 
 //Absolute probe literals
