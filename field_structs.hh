@@ -28,6 +28,7 @@ struct name {\
   ULong64_t device_clock[num_ch];\
   Double_t device_rate_mhz[num_ch];\
   Double_t device_gain_vpp[num_ch];\
+  Double_t fid_amp[num_ch];\
   Double_t fid_snr[num_ch];\
   Double_t fid_len[num_ch];\
   Double_t freq[num_ch];\
@@ -46,9 +47,10 @@ struct name {\
 const char * const name = "clock_sys_ns["#num_ch"]/l:"\
 "clock_gps_ns["#num_ch"]/l:device_clock["#num_ch"]/l:"\
 "device_rate_mhz["#num_ch"]/D:device_gain_vpp["#num_ch"]/D:"\
-"fid_snr["#num_ch"]/D:fid_len["#num_ch"]/D:freq["#num_ch"]/D:"\
-"ferr["#num_ch"]/D:freq_zc["#num_ch"]/D:ferr_zc["#num_ch"]/D:"\
-"health["#num_ch"]/s:method["#num_ch"]/s:trace["#num_ch"]["#len_tr"]/s";
+"fid_amp["#num_ch"]/D:fid_snr["#num_ch"]/D:fid_len["#num_ch"]/D:"\
+"freq["#num_ch"]/D:ferr["#num_ch"]/D:freq_zc["#num_ch"]/D:"\
+"ferr_zc["#num_ch"]/D:health["#num_ch"]/s:method["#num_ch"]/s:"\
+"trace["#num_ch"]["#len_tr"]/s";
 
 // NMR structs
 MAKE_NMR_STRUCT(fixed_t, NMR_NUM_FIXED_PROBES, NMR_FID_LENGTH_RECORD)
