@@ -66,6 +66,7 @@ struct nmr_vector {
   std::vector<ULong64_t> device_clock;
   std::vector<Double_t> device_rate_mhz;
   std::vector<Double_t> device_gain_vpp;
+  std::vector<Double_t> fid_amp;
   std::vector<Double_t> fid_snr;
   std::vector<Double_t> fid_len;
   std::vector<Double_t> freq;
