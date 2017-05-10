@@ -83,6 +83,7 @@ struct nmr_vector {
     device_clock.resize(size);
     device_rate_mhz.resize(size);
     device_gain_vpp.resize(size);
+    fid_amp.resize(size);
     fid_snr.resize(size);
     fid_len.resize(size);
     freq.resize(size);
