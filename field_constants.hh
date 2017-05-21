@@ -21,6 +21,7 @@ about:  A header file for constant parameters used across field team
 #define EVENTID_PLUNGING_PROBE 0x0008
 #define EVENTID_SURFACE_COIL 0x0010
 #define EVENTID_FLUXGATE 0x0020
+#define EVENTID_YOKOGAWA 0x0040
 #define EVENTID_ABS_PROBE 0x2000
 #define EVENTID_GALIL_ARGONNE 0x4000
 
