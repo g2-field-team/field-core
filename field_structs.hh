@@ -288,7 +288,7 @@ struct surface_coil_t{
 #define MAKE_SC_STRING(name,num_coils) SC_HELPER(name,num_coils)
 
 #define SC_HELPER(name,num_coils)\
-const char * const name = "sys_clock["#num_coils"]/D:bot_coil_currents["#num_coils"]/D:top_coil_currents["#num_coils"]/D:bot_coil_temps["#num_coils"]/D:top_coil_temps["#num_coils"]/D";
+const char * const name = "bot_sys_clock["#num_coils"]/D:top_sys_clock["#num_coils"]/D:bot_coil_currents["#num_coils"]/D:top_coil_currents["#num_coils"]/D:bot_coil_temps["#num_coils"]/D:top_coil_temps["#num_coils"]/D";
   
 MAKE_SC_STRING(sc_str,SC_NUM_COILS)
 
