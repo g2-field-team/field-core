@@ -293,9 +293,8 @@ const char * const name = "bot_sys_clock["#num_coils"]/D:top_sys_clock["#num_coi
 MAKE_SC_STRING(sc_str,SC_NUM_COILS)
 
 // PS Feedback struct  
-struct yokogawa_t{
+struct psfeedback_t{
    ULong64_t sys_clock;   // system clock
-   ULong64_t gps_clock;   // GPS clock 
    Int_t mode;            // device mode (0 = voltage, 1 = current)  
    Int_t is_enabled;      // is the output enabled (0 = false, 1 = true) 
    Double_t current;      // current setting (in mA) 
@@ -305,10 +304,10 @@ struct yokogawa_t{
    Double_t d_fdbk;       // D coeff for feedback  
 };
 
-#define MAKE_YOKO_STRING() HELPER_YOKO_STRING() 
-#define HELPER_YOKO_STRING() \
-const char * const yokogawa_str = "sys_clock/l:gps_clock/l:mode/i:is_enabled/i:current/D:voltage/D:p_fdbk/D/i_fdbk/D:d_fdbk/D";
-MAKE_YOKO_STRING()
+#define MAKE_PSFB_STRING() HELPER_PSFB_STRING() 
+#define HELPER_PSFB_STRING() \
+const char * const psfb_str = "sys_clock/l:mode/i:is_enabled/i:current/D:voltage/D:p_fdbk/D/i_fdbk/D:d_fdbk/D";
+MAKE_PSFB_STRING()
 
 } // ::g2field
 
