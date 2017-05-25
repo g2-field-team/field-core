@@ -229,7 +229,7 @@ struct trolley_extra_t{
 
 #define MAKE_TRLYEXTRA_STRING() HELPER_TRLYEXTRA_STRING()
 #define HELPER_TRLYEXTRA_STRING() \
-const char * const trolley_extra_str = "GalilTIME/D:GalilPos[2]/I:GalilVel[2]/I";
+const char * const trolley_extra_str = "GalilTIME/D:Source/I:GalilPos[2]/I:GalilVel[2]/I";
 MAKE_TRLYEXTRA_STRING()
 
 //Galil Data structs
@@ -265,7 +265,7 @@ struct absolute_nmr_info_t{
 
 #define MAKE_ABSNMR_STRING() HELPER_ABSNMR_STRING()
 #define HELPER_ABSNMR_STRING() \
-const char * const absolute_nmr_info_str = "time_stamp/l:length/i:Pos[4]/i:flay_run_number/s:probe_index/s";
+const char * const absolute_nmr_info_str = "time_stamp/l:length/i:Pos[4]/I:flay_run_number/s:probe_index/s";
 MAKE_ABSNMR_STRING()
 
 // Absolute calibration NMR structs
@@ -295,18 +295,18 @@ MAKE_SC_STRING(sc_str,SC_NUM_COILS)
 // PS Feedback struct  
 struct psfeedback_t{
    ULong64_t sys_clock;   // system clock
-   Int_t mode;            // device mode (0 = voltage, 1 = current)  
-   Int_t is_enabled;      // is the output enabled (0 = false, 1 = true) 
    Double_t current;      // current setting (in mA) 
    Double_t voltage;      // voltage setting (in V) 
    Double_t p_fdbk;       // P coeff for feedback  
    Double_t i_fdbk;       // I coeff for feedback  
    Double_t d_fdbk;       // D coeff for feedback  
+   Int_t mode;            // device mode (0 = voltage, 1 = current)  
+   Int_t is_enabled;      // is the output enabled (0 = false, 1 = true) 
 };
 
 #define MAKE_PSFB_STRING() HELPER_PSFB_STRING() 
 #define HELPER_PSFB_STRING() \
-const char * const psfb_str = "sys_clock/l:mode/i:is_enabled/i:current/D:voltage/D:p_fdbk/D/i_fdbk/D:d_fdbk/D";
+const char * const psfb_str = "sys_clock/l:current/D:voltage/D:p_fdbk/D/i_fdbk/D:d_fdbk/D:mode/I:is_enabled/I";
 MAKE_PSFB_STRING()
 
 } // ::g2field
