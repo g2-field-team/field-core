@@ -302,6 +302,7 @@ struct psfeedback_t{
    Double_t d_fdbk;       // D coeff for feedback  
    Int_t mode;            // device mode (0 = voltage, 1 = current)  
    Int_t is_enabled;      // is the output enabled (0 = false, 1 = true) 
+   Int_t fdbk_state;      // is feedback off (0) or on (1) 
 };
 
 #define MAKE_PSFB_STRING() HELPER_PSFB_STRING() 
