@@ -307,7 +307,7 @@ struct psfeedback_t{
 
 #define MAKE_PSFB_STRING() HELPER_PSFB_STRING() 
 #define HELPER_PSFB_STRING() \
-const char * const psfb_str = "sys_clock/l:current/D:voltage/D:p_fdbk/D/i_fdbk/D:d_fdbk/D:mode/I:is_enabled/I:fdbk_state/I";
+const char * const psfb_str = "sys_clock/l:current/D:voltage/D:p_fdbk/D:i_fdbk/D:d_fdbk/D:mode/I:is_enabled/I:fdbk_state/I";
 MAKE_PSFB_STRING()
 
 } // ::g2field
